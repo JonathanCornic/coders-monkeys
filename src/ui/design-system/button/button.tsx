@@ -92,7 +92,7 @@ export function Button({
           sizeStyles,
           icoSize,
           isLoading && "cursor-wait",
-          "relative"
+          "relative animate"
         )}
         onClick={() => console.log("button")}
         disabled={disabled}
