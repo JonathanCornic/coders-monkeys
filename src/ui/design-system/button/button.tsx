@@ -1,4 +1,4 @@
-import { IconProps } from "@/types/iconProps";
+import { IconProps } from "@/types/icon-props";
 import clsx from "clsx";
 import { Spinner } from "../spinner/spinner";
 
