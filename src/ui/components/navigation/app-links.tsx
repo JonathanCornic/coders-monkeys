@@ -69,14 +69,14 @@ const footerInformationsLinks: AppLinks[] = [
 ];
 export const footerSocialsLinks: AppLinks[] = [
   {
-    label: "Linkedin",
-    baseUrl: "https://www.linkedin.com/",
+    label: "Youtube",
+    baseUrl: "https://www.youtube.com",
     type: "external",
     icon: RiYoutubeFill,
   },
   {
-    label: "Youtube",
-    baseUrl: "https://www.youtube.com",
+    label: "Linkedin",
+    baseUrl: "https://www.linkedin.com/",
     type: "external",
     icon: RiLinkedinFill,
   },
@@ -91,18 +91,18 @@ export const footerSocialsLinks: AppLinks[] = [
 export const footerLinks = [
   {
     label: "App",
-    links: footerApplicationLinks
+    links: footerApplicationLinks,
   },
   {
     label: "Utilisateurs",
-    links: footerUsersLinks
+    links: footerUsersLinks,
   },
   {
     label: "Informations",
-    links: footerInformationsLinks
+    links: footerInformationsLinks,
   },
   {
     label: "Réseaux",
-    links: footerSocialsLinks
-  }
-]
+    links: footerSocialsLinks,
+  },
+];
