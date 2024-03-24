@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Container } from "../container/container";
 import { ActiveLink } from "./active-link";
 import { footerLinks } from "./app-links";
+import { SocialNetworksButtons } from "./social-networks-buttons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -48,7 +49,9 @@ export function Footer() {
             </a>
             {` - Remote monkey SASU`}
           </Typographiy>
-          <div></div>
+          <div>
+            <SocialNetworksButtons theme="gray"/>
+          </div>
         </div>
       </Container>
     </div>
