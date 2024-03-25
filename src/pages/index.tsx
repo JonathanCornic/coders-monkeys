@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <Seo title="Coders Monkeys" description="Description..." />
 
-      <Layout>
+      <Layout isDisplayBreadcrumbs={false}>
         <LandingPageContainer/>
       </Layout>
     </>
