@@ -97,7 +97,7 @@ export function FeaturedView() {
             </Typographiy>
             <Button
               variant="secondary"
-              baseUrl="/#"
+              baseUrl="/connexion/inscription"
               icon={{ icon: RiArrowRightLine }}
             >
               Commencer

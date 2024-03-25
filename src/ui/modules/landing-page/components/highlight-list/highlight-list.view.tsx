@@ -25,7 +25,7 @@ export default function HighlightListView() {
             <ListPoint>Gagne de l’assurance.</ListPoint>
           </div>
           <div className="relative inline-block">
-            <Button baseUrl="/#" icon={{ icon: RiArrowRightLine }}>
+            <Button baseUrl="/connexion/inscription" icon={{ icon: RiArrowRightLine }}>
               Let's go
             </Button>
             <Image
@@ -59,7 +59,7 @@ export default function HighlightListView() {
           <div className="relative inline-block">
             <Button
               variant="secondary"
-              baseUrl="/#"
+              baseUrl="/connexion/inscription"
               icon={{ icon: RiArrowRightLine }}
             >
               Démarrer

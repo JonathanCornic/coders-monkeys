@@ -16,7 +16,7 @@ import { RiNotification2Fill } from "react-icons/ri";
 export default function DesignSystem() {
   return (
     <>
-      <Seo title="Coders Monkeys" description="Design system du projet" />
+      <Seo title="Design system de Coders Monkeys" description="Design system du projet" />
 
       <Layout>
         <Container className="py-10 space-y-10">

@@ -13,7 +13,11 @@ export default function CallToActionView() {
             N’attend pas pour développer tes compétences...
           </Typographiy>
           <div>
-            <Button variant="succes" baseUrl="/#" linkType={LinkTypes.EXTERNAL}>
+            <Button
+              variant="succes"
+              baseUrl="https://www.youtube.com/watch?v=2ehqBu_dDsk&list=PLtKaauZVThjAe3U3AQqa-C1fLwHR48aMM&ab_channel=RemoteMonkey"
+              linkType={LinkTypes.EXTERNAL}
+            >
               Formation React.js gratuite
             </Button>
           </div>

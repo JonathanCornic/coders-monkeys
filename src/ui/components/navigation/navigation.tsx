@@ -1,10 +1,10 @@
 import { Button } from "@/ui/design-system/button/button";
 import { Logo } from "@/ui/design-system/logo/logo";
 import { Typographiy } from "@/ui/design-system/typography/typography";
-
 import { Container } from "../container/container";
 import { ActiveLink } from "./active-link";
 import Link from "next/link";
+
 
 interface Props {}
 export function Navigation({}: Props) {
@@ -36,8 +36,8 @@ export function Navigation({}: Props) {
             <ActiveLink href="/contacts">Contacts</ActiveLink>
           </Typographiy>
           <div className="flex items-center gap-2">
-            <Button size="small">Connexion</Button>
-            <Button size="small" variant="secondary">
+            <Button baseUrl="/connexion" size="small">Connexion</Button>
+            <Button baseUrl="connexion/inscription" size="small" variant="secondary">
               Rejoindre
             </Button>
           </div>

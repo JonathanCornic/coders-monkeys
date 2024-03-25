@@ -27,7 +27,7 @@ export function CodersMonkeysSlackView() {
           Rejoins-nous et obtiens de l’aide, des conseils et pourquoi pas des
           nouveaux potes !
         </Typographiy>
-        <Button baseUrl="/#" linkType={LinkTypes.EXTERNAL}>
+        <Button baseUrl="https://www.slack.com" linkType={LinkTypes.EXTERNAL}>
           Rejoindre le groupe d'aide
         </Button>
       </div>

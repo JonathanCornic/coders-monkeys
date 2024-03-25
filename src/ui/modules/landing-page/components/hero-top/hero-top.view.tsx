@@ -21,7 +21,7 @@ export function HeroTopView() {
           fais-toi de nouveaux amis développeurs.
         </Typographiy>
         <div className="space-x-5 pt-2.5">
-          <Button baseUrl="">Commencer</Button>
+          <Button baseUrl="/connexion/inscription">Commencer</Button>
           <Button baseUrl="" variant="secondary">
             En savoir plus
           </Button>
