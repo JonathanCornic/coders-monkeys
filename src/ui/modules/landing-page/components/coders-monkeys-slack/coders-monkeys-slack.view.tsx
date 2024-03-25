@@ -1,4 +1,4 @@
-import { LinkType } from "@/lib/link-type";
+import { LinkTypes } from "@/lib/link-type";
 import { Container } from "@/ui/components/container/container";
 import { Button } from "@/ui/design-system/button/button";
 import { Logo } from "@/ui/design-system/logo/logo";
@@ -27,7 +27,7 @@ export function CodersMonkeysSlackView() {
           Rejoins-nous et obtiens de l’aide, des conseils et pourquoi pas des
           nouveaux potes !
         </Typographiy>
-        <Button baseUrl="/#" linkType={LinkType.EXTERNAL}>
+        <Button baseUrl="/#" linkType={LinkTypes.EXTERNAL}>
           Rejoindre le groupe d'aide
         </Button>
       </div>

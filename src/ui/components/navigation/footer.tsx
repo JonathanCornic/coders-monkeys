@@ -1,4 +1,4 @@
-import { LinkType } from "@/lib/link-type";
+import { LinkTypes } from "@/lib/link-type";
 import { FooterLinks } from "@/types/app-links";
 import { Typographiy } from "@/ui/design-system/typography/typography";
 import Image from "next/image";
@@ -64,10 +64,10 @@ interface FooterLinkProps {
 function FooterLink({ data }: FooterLinkProps) {
   const linksList = data.links.map((link) => (
     <div key={crypto.randomUUID()}>
-      {link.type === LinkType.INTERNAL && (
+      {link.type === LinkTypes.INTERNAL && (
         <ActiveLink href={link.baseUrl}>{link.label}</ActiveLink>
       )}
-      {link.type === LinkType.EXTERNAL && (
+      {link.type === LinkTypes.EXTERNAL && (
         <a href={link.baseUrl} target="_blank">
           {link.label}
         </a>

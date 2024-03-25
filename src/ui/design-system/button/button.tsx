@@ -1,4 +1,4 @@
-import { LinkType } from "@/lib/link-type";
+import { LinkType, LinkTypes } from "@/lib/link-type";
 import { IconProps } from "@/types/icon-props";
 import clsx from "clsx";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import { Spinner } from "../spinner/spinner";
 
 interface Props {
   size?: "small" | "medium" | "large";
-  variant?: "accent" | "secondary" | "outline" | "disabled" | "ico";
+  variant?: "accent" | "secondary" | "outline" | "disabled" | "ico" | "succes";
   icon?: IconProps;
   iconTheme?: "accent" | "secondary" | "gray";
   iconPosition?: "left" | "right";
@@ -50,6 +50,9 @@ export function Button({
     case "disabled":
       variantStyles =
         "bg-gray-400 border border-gray-500 text-gray-600 rounded cursor-not-allowed";
+      break;
+    case "succes":
+      variantStyles = "bg-secondary hover:bg-secondary-400 text-white rounded";
       break;
     case "ico":
       if (iconTheme === "accent") {
@@ -140,7 +143,7 @@ export function Button({
   );
 
   if(baseUrl){
-    if(linkType === LinkType.EXTERNAL){
+    if(linkType === LinkTypes.EXTERNAL){
       return (
         <a href={baseUrl} target="_blank">{buttonElement}</a>
       )
