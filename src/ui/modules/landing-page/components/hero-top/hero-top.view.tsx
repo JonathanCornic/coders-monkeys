@@ -33,6 +33,7 @@ export function HeroTopView() {
         width={811}
         height={596}
         className="absolute top-0 right-0 z-0"
+        priority
       />
     </Container>
   );

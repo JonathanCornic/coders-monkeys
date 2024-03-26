@@ -28,6 +28,11 @@ const config: Config = {
         800: "#333333",
         DEFAULT: "#1D1D1D",
       },
+      alert: {
+        danger: "#FF4E4E",
+        succes: "#FEB72F",
+        warning: "#90DA1A",
+      },
     },
     fontSize: {
       "8xl": [

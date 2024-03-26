@@ -4,9 +4,12 @@ import { Typographiy } from "@/ui/design-system/typography/typography";
 import Image from "next/image";
 import Link from "next/link";
 import { LoginForm } from "./login.form";
+import { FormsType } from "@/types/forms";
 
-
-export function LoginView() {
+interface Props {
+  form: FormsType;
+}
+export function LoginView({form}:Props) {
   return (
     <Container className="grid grid-cols-2 gap-20 mb-32">
       <div className="flex items-center">
@@ -16,6 +19,7 @@ export function LoginView() {
             src="/assets/images/caracter-blue.png"
             alt="Personnage low-poly bleu qui saute"
             className="object-scale-down"
+            priority
           />
         </div>
       </div>
@@ -34,7 +38,10 @@ export function LoginView() {
               </Typographiy>
             </div>
           </div>
-          <LoginForm/>
+          <LoginForm form={form} />
+          <Typographiy variant="caption4" component="div" theme="primary" className="text-center">
+            <Link href="/connexion/mot-de-passe-perdu">mot de passe perdu ?</Link>
+          </Typographiy>
         </Box>
       </div>
     </Container>

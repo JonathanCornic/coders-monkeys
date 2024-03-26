@@ -1,3 +1,4 @@
+import { FormsType } from "@/types/forms";
 import { Container } from "@/ui/components/container/container";
 import { Box } from "@/ui/design-system/box/box";
 import { Typographiy } from "@/ui/design-system/typography/typography";
@@ -5,7 +6,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { ForgetPasswordForm } from "./forget-password.form";
 
-export function ForgetPasswordView() {
+interface Props {
+  form: FormsType;
+}
+export function ForgetPasswordView({ form }: Props) {
   return (
     <Container className="grid grid-cols-2 gap-20 mb-32">
       <div className="flex items-center">
@@ -15,6 +19,7 @@ export function ForgetPasswordView() {
             src="/assets/images/caracter-red.png"
             alt="Personnage low-poly rouge qui regarde sa tablette"
             className="object-scale-down"
+            priority
           />
         </div>
       </div>
@@ -29,10 +34,9 @@ export function ForgetPasswordView() {
               <Link href="/connexion">Connexion</Link>
             </Typographiy>
           </div>
-          <ForgetPasswordForm />
+          <ForgetPasswordForm form={form} />
         </Box>
       </div>
     </Container>
   );
 }
-
