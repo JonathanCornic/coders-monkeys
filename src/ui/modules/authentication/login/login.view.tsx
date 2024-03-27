@@ -39,7 +39,7 @@ export function LoginView({form}:Props) {
             </div>
           </div>
           <LoginForm form={form} />
-          <Typographiy variant="caption4" component="div" theme="primary" className="text-center">
+          <Typographiy variant="caption4" theme="primary" className="text-center">
             <Link href="/connexion/mot-de-passe-perdu">mot de passe perdu ?</Link>
           </Typographiy>
         </Box>

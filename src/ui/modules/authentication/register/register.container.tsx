@@ -40,7 +40,7 @@ export function RegisterContainer() {
     if (password.length <= 5) {
       setError("password", {
         type: "manual",
-        message: "ton mot de passe doit comporter au minimum 6 caractères",
+        message: "Ton mot de passe doit comporter au minimum 6 caractères",
       });
       setIsLoading(false);
       return;

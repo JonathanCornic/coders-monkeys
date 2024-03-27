@@ -50,7 +50,7 @@ export function Footer() {
             {` - Remote monkey SASU`}
           </Typographiy>
           <div>
-            <SocialNetworksButtons theme="gray"/>
+            <SocialNetworksButtons theme="gray" />
           </div>
         </div>
       </Container>
