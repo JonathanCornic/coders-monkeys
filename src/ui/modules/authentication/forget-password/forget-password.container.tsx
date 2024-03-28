@@ -7,8 +7,8 @@ import { toast } from "react-toastify";
 import { ForgetPasswordView } from "./forget-password.view";
 
 export function ForgetPasswordContainer() {
-  const { value: isLoading, setValue: setIsLoading } = useToggle();
   const router = useRouter();
+  const { value: isLoading, setValue: setIsLoading } = useToggle();
 
   const {
     handleSubmit,
@@ -38,10 +38,8 @@ export function ForgetPasswordContainer() {
   };
 
   return (
-    <>
-      <ForgetPasswordView
-        form={{ errors, register, handleSubmit, onSubmit, isLoading }}
-      />
-    </>
+    <ForgetPasswordView
+      form={{ errors, register, handleSubmit, onSubmit, isLoading }}
+    />
   );
 }

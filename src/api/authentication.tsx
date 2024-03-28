@@ -2,9 +2,9 @@ import { auth } from "@/config/firebase-config";
 import { FirebaseError } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
-  sendPasswordResetEmail,
 } from "firebase/auth";
 
 export const firebaseCreateUser = async (email: string, password: string) => {

@@ -31,7 +31,7 @@ export function Navigation({}: Props) {
             className="flex items-center gap-7"
           >
             <ActiveLink href="/design-system">Design system</ActiveLink>
-            <ActiveLink href="/projets">Projets</ActiveLink>
+            <ActiveLink href="/mon-espace/mes-projets">Projets</ActiveLink>
             <ActiveLink href="/formations">Formations</ActiveLink>
             <ActiveLink href="/contacts">Contacts</ActiveLink>
           </Typographiy>

@@ -9,7 +9,7 @@ const footerApplicationLinks: AppLinks[] = [
   },
   {
     label: "Projets",
-    baseUrl: "/#",
+    baseUrl: "/mon-espace/mes-projets",
     type: "internal",
   },
   {
@@ -26,7 +26,7 @@ const footerApplicationLinks: AppLinks[] = [
 const footerUsersLinks: AppLinks[] = [
   {
     label: "Mon espace",
-    baseUrl: "/#",
+    baseUrl: "/mon-espace",
     type: "internal",
   },
   {
