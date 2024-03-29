@@ -1,4 +1,5 @@
-import { firebaseCreateUser } from "@/api/authentication";
+import { firebaseCreateUser, sendEmailVerificationProcedure } from "@/api/authentication";
+import { firestoreCreateDocument } from "@/api/firestore";
 import { useToggle } from "@/hooks/use-toggle";
 import { RegisterFormFielsType } from "@/types/forms";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -16,6 +17,27 @@ export function RegisterContainer() {
     reset,
   } = useForm<RegisterFormFielsType>();
 
+  const handleCreateUserDocument = async (
+    collectionName: string,
+    documentID: string,
+    document: object
+  ) => {
+    const { error } = await firestoreCreateDocument(
+      collectionName,
+      documentID,
+      document
+    );
+    if (error) {
+      toast.error(error.message);
+      setIsLoading(false);
+      return;
+    }
+    toast.success("Bienvenue sur l'app des singes codeurs");
+    setIsLoading(false);
+    reset();
+    sendEmailVerificationProcedure()
+  };
+
   const handleCreateUserAuthentication = async ({
     email,
     password,
@@ -27,10 +49,14 @@ export function RegisterContainer() {
       toast.error(error.message);
       return;
     }
-    // @Todo create user document
-    setIsLoading(false);
-    toast.success("Bienvenue sur l'app des singes codeurs");
-    reset();
+    const userDocumentData = {
+      email,
+      how_did_hear,
+      uid: data.uid,
+      creation_date: new Date(),
+    };
+
+    handleCreateUserDocument("users", data.uid, userDocumentData);
   };
 
   const onSubmit: SubmitHandler<RegisterFormFielsType> = async (formData) => {
