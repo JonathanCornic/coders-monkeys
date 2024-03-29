@@ -1,35 +1,14 @@
-import { LoginFormFielsType } from "@/types/forms";
-import { useEffect } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { LoginView } from "./login.view";
-
 import { firebaseSignInUser } from "@/api/authentication";
-import { auth } from "@/config/firebase-config";
 import { useToggle } from "@/hooks/use-toggle";
-import { onAuthStateChanged } from "firebase/auth";
+import { LoginFormFielsType } from "@/types/forms";
 import { useRouter } from "next/router";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import { LoginView } from "./login.view";
 
 export function LoginContainer() {
   const router = useRouter();
   const { value: isLoading, setValue: setIsLoading } = useToggle();
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        console.log(user);
-
-        // ...
-      } else {
-        // User is signed out
-        // ...
-        console.log("not a user connected");
-      }
-    });
-  }, []);
 
   const {
     handleSubmit,
@@ -48,7 +27,7 @@ export function LoginContainer() {
     }
     toast.success("Bienvenue sur Coders Monkeys");
     setIsLoading(false);
-    reset()
+    reset();
     router.push("/mon-espace");
   };
 
