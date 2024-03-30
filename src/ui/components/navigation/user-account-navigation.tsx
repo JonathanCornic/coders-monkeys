@@ -2,12 +2,10 @@ import { firebaseLogOutUser } from "@/api/authentication";
 import { Box } from "@/ui/design-system/box/box";
 import { Button } from "@/ui/design-system/button/button";
 import { Typographiy } from "@/ui/design-system/typography/typography";
-import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import { ActiveLink } from "./active-link";
 
 export function UserAccountNavigation() {
-  const router = useRouter();
 
   const handleLogOutUser = async () => {
     const { error } = await firebaseLogOutUser();
@@ -16,7 +14,6 @@ export function UserAccountNavigation() {
       return;
     }
     toast.success("A bientôt sur Coders Monkeys");
-    router.push("/");
   };
 
   return (

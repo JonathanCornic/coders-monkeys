@@ -1,18 +1,27 @@
+import { useAuth } from "@/context/AuthUserContext";
 import { Button } from "@/ui/design-system/button/button";
 import { Logo } from "@/ui/design-system/logo/logo";
 import { Typographiy } from "@/ui/design-system/typography/typography";
+import Link from "next/link";
 import { Container } from "../container/container";
 import { ActiveLink } from "./active-link";
-import Link from "next/link";
-import { useAuth } from "@/context/AuthUserContext";
-
+import { AccountAvatarNavigationLink } from "./account-avatar-link";
 
 interface Props {}
 export function Navigation({}: Props) {
+  const { authUser } = useAuth();
 
-  const {authUser, authUserIsLoading} = useAuth()
-  console.log("authUser", authUser, "isLoading", authUserIsLoading);
-  
+  const authenticationSystem = (
+    <div className="flex items-center gap-2">
+      <Button baseUrl="/connexion" size="small">
+        Connexion
+      </Button>
+      <Button baseUrl="connexion/inscription" size="small" variant="secondary">
+        Rejoindre
+      </Button>
+    </div>
+  );
+
   return (
     <div className="border-b-2 border-gray-400">
       <Container className="flex items-center justify-between py-1.5 gap-7">
@@ -40,12 +49,8 @@ export function Navigation({}: Props) {
             <ActiveLink href="/formations">Formations</ActiveLink>
             <ActiveLink href="/contacts">Contacts</ActiveLink>
           </Typographiy>
-          <div className="flex items-center gap-2">
-            <Button baseUrl="/connexion" size="small">Connexion</Button>
-            <Button baseUrl="connexion/inscription" size="small" variant="secondary">
-              Rejoindre
-            </Button>
-          </div>
+
+          {!authUser ? authenticationSystem : <AccountAvatarNavigationLink/>}
         </div>
       </Container>
     </div>
