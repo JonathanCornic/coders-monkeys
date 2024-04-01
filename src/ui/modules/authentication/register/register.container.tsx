@@ -1,7 +1,7 @@
 import { firebaseCreateUser, sendEmailVerificationProcedure } from "@/api/authentication";
 import { firestoreCreateDocument } from "@/api/firestore";
 import { useToggle } from "@/hooks/use-toggle";
-import { RegisterFormFielsType } from "@/types/forms";
+import { RegisterFormFieldsType } from "@/types/forms";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { RegisterView } from "./register.view";
@@ -15,7 +15,7 @@ export function RegisterContainer() {
     register,
     setError,
     reset,
-  } = useForm<RegisterFormFielsType>();
+  } = useForm<RegisterFormFieldsType>();
 
   const handleCreateUserDocument = async (
     collectionName: string,
@@ -59,7 +59,7 @@ export function RegisterContainer() {
     handleCreateUserDocument("users", data.uid, userDocumentData);
   };
 
-  const onSubmit: SubmitHandler<RegisterFormFielsType> = async (formData) => {
+  const onSubmit: SubmitHandler<RegisterFormFieldsType> = async (formData) => {
     setIsLoading(true);
     const { password } = formData;
 

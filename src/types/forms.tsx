@@ -7,15 +7,20 @@ export interface FormsType {
   handleSubmit: any;
 }
 
-export interface RegisterFormFielsType {
+export interface RegisterFormFieldsType {
   email: string;
   password: string;
   how_did_hear: string;
 }
-export interface LoginFormFielsType {
+export interface LoginFormFieldsType {
   email: string;
   password: string;
 }
-export interface FogetPasswordFormFielsType {
+export interface FogetPasswordFormFieldsType {
   email: string;
+}
+export interface OnboardingProfileFormFieldsType {
+  displayName: string;
+  expertise: string;
+  biography: string;
 }

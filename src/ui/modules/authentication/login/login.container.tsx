@@ -1,6 +1,6 @@
 import { firebaseSignInUser } from "@/api/authentication";
 import { useToggle } from "@/hooks/use-toggle";
-import { LoginFormFielsType } from "@/types/forms";
+import { LoginFormFieldsType } from "@/types/forms";
 import { useRouter } from "next/router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -16,9 +16,9 @@ export function LoginContainer() {
     register,
     setError,
     reset,
-  } = useForm<LoginFormFielsType>();
+  } = useForm<LoginFormFieldsType>();
 
-  const handleSignInUser = async ({ email, password }: LoginFormFielsType) => {
+  const handleSignInUser = async ({ email, password }: LoginFormFieldsType) => {
     const { error } = await firebaseSignInUser(email, password);
     if (error) {
       setIsLoading(false);
@@ -31,7 +31,7 @@ export function LoginContainer() {
     router.push("/mon-espace");
   };
 
-  const onSubmit: SubmitHandler<LoginFormFielsType> = async (formData) => {
+  const onSubmit: SubmitHandler<LoginFormFieldsType> = async (formData) => {
     setIsLoading(true);
     const { password } = formData;
     if (password.length <= 5) {

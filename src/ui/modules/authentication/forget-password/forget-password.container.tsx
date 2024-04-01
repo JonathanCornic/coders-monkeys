@@ -1,6 +1,6 @@
 import { sendEmailToResetPassword } from "@/api/authentication";
 import { useToggle } from "@/hooks/use-toggle";
-import { FogetPasswordFormFielsType } from "@/types/forms";
+import { FogetPasswordFormFieldsType } from "@/types/forms";
 import { useRouter } from "next/router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-toastify";
@@ -15,9 +15,9 @@ export function ForgetPasswordContainer() {
     formState: { errors },
     register,
     reset,
-  } = useForm<FogetPasswordFormFielsType>();
+  } = useForm<FogetPasswordFormFieldsType>();
 
-  const handleResetPassword = async ({ email }: FogetPasswordFormFielsType) => {
+  const handleResetPassword = async ({ email }: FogetPasswordFormFieldsType) => {
     const { error } = await sendEmailToResetPassword(email);
     if (error) {
       setIsLoading(false);
@@ -30,7 +30,7 @@ export function ForgetPasswordContainer() {
     router.push("/connexion");
   };
 
-  const onSubmit: SubmitHandler<FogetPasswordFormFielsType> = async (
+  const onSubmit: SubmitHandler<FogetPasswordFormFieldsType> = async (
     formData
   ) => {
     setIsLoading(true);

@@ -4,7 +4,7 @@ import { Typographiy } from "../typography/typography";
 interface Props {
   isLoading: boolean;
   placeholder: string;
-  type?: "text" | "email" | "password";
+  rows?: number;
   register: any;
   errors: any;
   errorMsg?: string;
@@ -14,10 +14,10 @@ interface Props {
   label?: string;
 }
 
-export function Input({
+export const Textarea = ({
   isLoading,
   placeholder,
-  type = "text",
+  rows = 5,
   register,
   errors,
   errorMsg = "Tu dois renseigner ce champ",
@@ -25,7 +25,7 @@ export function Input({
   required = true,
   isAutocompleted = false,
   label,
-}: Props) {
+}: Props) => {
   return (
     <div className="space-y-2">
       {label && (
@@ -36,20 +36,20 @@ export function Input({
           {label}
         </Typographiy>
       )}
-      <input
-        type={type}
+      <textarea
+        rows={rows}
         placeholder={placeholder}
         className={clsx(
-          isLoading && "cursor-not-allowed",
+          isLoading
+            ? "bg-gray-300 focus:ring-gray-300 cursor-not-allowed"
+            : "bg-white",
           errors[id]
             ? "placeholder-alert-danger text-alert-danger"
             : "placeholder-gray-600",
-          "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
+          "w-full p-4 font-light border rounded focus:outline-none focus:ring-1 focus:ring-primary border-gray-400"
         )}
         disabled={isLoading}
-        {...register(id, {
-          required: { value: required, message: errorMsg },
-        })}
+        {...register(id, { required: { value: required, message: errorMsg } })}
         autoComplete={isAutocompleted ? "on" : "off"}
       />
       {errors[id] && (
@@ -59,4 +59,4 @@ export function Input({
       )}
     </div>
   );
-}
+};
