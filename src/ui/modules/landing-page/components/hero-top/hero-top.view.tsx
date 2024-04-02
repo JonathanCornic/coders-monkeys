@@ -2,21 +2,23 @@ import { useMobile } from "@/hooks/use-mobile";
 import { Container } from "@/ui/components/container/container";
 import { Button } from "@/ui/design-system/button/button";
 import { Typographiy } from "@/ui/design-system/typography/typography";
+import clsx from "clsx";
 import Image from "next/image";
 
 export function HeroTopView() {
   const {isMobile} = useMobile()
   return (
     <Container className="relative md:pt-40 md:pb-52 overflow-hidden pt-8 pb-20">
-      <Image
-        src="assets/svg/rocket.svg"
-        alt="illustration d'une fusée pour materialiser l'évolution des développeurs front-end"
-        width={isMobile ? 100 : 811}
-        height={isMobile ? 73 : 596}
-        className="md:absolute top-0 md:right-0 z-0 mb-5"
-        priority
-      />
-      <div className="w-full max-w-2xl space-y-5">
+      <div className="absolute md:top-10 md:right-0 top-0 z-0 mb-5 lg:w-[800px] lg:h-[600px] md:w-[400px] md:h-[300px] w-[100px] h-[75px]">
+        <Image
+          src="assets/svg/rocket.svg"
+          alt="illustration d'une fusée pour materialiser l'évolution des développeurs front-end"
+          fill
+          className="my-10"
+          priority
+        />
+      </div>
+      <div className="w-full max-w-2xl space-y-5 mt-28 md:mt-0">
         <Typographiy
           variant={isMobile ? "h4" : "h1"}
           component="h1"

@@ -85,7 +85,7 @@ export function FeaturedView() {
 
   return (
     <div className="bg-gray-300">
-      <Container className="md:grid grid-cols-12 py-20 md:gap-24 md:py-24 gap-5 flex flex-col-reverse">
+      <Container className="lg:grid grid-cols-12 py-20 xl:gap-24 md:gap-20 md:py-24 gap-5 flex flex-col-reverse">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-7 col-span-12 md:col-span-7">
           {featuredList}
         </div>

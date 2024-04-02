@@ -41,10 +41,9 @@ export const DesktopNav = () => {
           component="div"
           className="flex items-center gap-7"
         >
-          <ActiveLink href="/design-system">Design system</ActiveLink>
+          <ActiveLink href="/design-system" className="lg:block hidden">Design system</ActiveLink>
           <ActiveLink href="/mon-espace/mes-projets">Projets</ActiveLink>
           <ActiveLink href="/formations">Formations</ActiveLink>
-          <ActiveLink href="/contacts">Contacts</ActiveLink>
         </Typographiy>
 
         {!authUser ? authenticationSystem : <AccountAvatarNavigationLink />}

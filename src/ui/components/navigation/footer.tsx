@@ -16,7 +16,7 @@ export function Footer() {
 
   return (
     <div className="bg-gray">
-      <Container className="flex justify-between pt-16">
+      <Container className="flex justify-between pt-16 flex-col md:flex-row md:gap-24">
         <div className="flex flex-col items-center gap-1">
           <Typographiy variant="caption1" theme="white" weigth="medium">
             Formations gratuites
@@ -25,20 +25,27 @@ export function Footer() {
             Abonne-toi à la chaine !
           </Typographiy>
           <a href="https://youtube.com/@remotemonkey" target="_blank">
-            <Image
-              src="/assets/svg/YTB.svg"
-              alt="Remote Monkey | Youtube"
-              width={229}
-              height={216}
-            />
+            <div className="relative md:w-56 md:h-56 w-28 h-28 mb-6">
+              <Image
+                src="/assets/svg/YTB.svg"
+                alt="Remote Monkey | Youtube"
+                fill
+              />
+            </div>
           </a>
         </div>
-        <div className="flex gap-7">{footerNavigationList}</div>
+        <div className="flex flex-wrap gap-7 flex-col text-center md:flex-row md:text-start">
+          {footerNavigationList}
+        </div>
       </Container>
       <Container className="pt-9 pb-11 space-y-11">
         <hr className="text-gray-800" />
-        <div className="flex items-center justify-between">
-          <Typographiy variant="caption4" theme="gray">
+        <div className="flex items-center justify-between flex-col gap-4 text-center md:flex-row">
+          <Typographiy
+            variant="caption4"
+            theme="gray"
+            className="leading-6 md:leading-normal"
+          >
             {` Copyright © ${currentYear} | Propulsed by`}{" "}
             <a
               href="https://arnaud-desportes.fr"

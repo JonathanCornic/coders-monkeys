@@ -6,8 +6,9 @@ import { useMemo } from "react";
 interface Props {
   href: string;
   children: React.ReactNode;
+  className?:string;
 }
-export function ActiveLink({ href, children }: Props) {
+export function ActiveLink({ href, children, className }: Props) {
   const router = useRouter();
 
   const isActive: boolean = useMemo(() => {
@@ -15,7 +16,7 @@ export function ActiveLink({ href, children }: Props) {
   }, [router.pathname, href]);
 
   return (
-    <Link href={href} className={clsx(isActive && "text-primary font-medium")}>
+    <Link href={href} className={clsx(isActive && "text-primary font-medium", className)}>
       {children}
     </Link>
   );
