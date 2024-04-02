@@ -1,11 +1,14 @@
 interface Props {
-  size?: "very-small" | "small" | "medium" | "large";
+  size?: "very-small" | "small" | "medium" | "large" | "extra-small";
 }
 
 export function Logo({ size = "medium" }: Props) {
   let sizeLogo: number;
 
   switch (size) {
+    case "extra-small":
+      sizeLogo = 24;
+      break;
     case "very-small":
       sizeLogo = 34;
       break;

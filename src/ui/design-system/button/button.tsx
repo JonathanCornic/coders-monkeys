@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Spinner } from "../spinner/spinner";
 
 interface Props {
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "very-small";
   variant?:
     | "accent"
     | "secondary"
@@ -83,6 +83,14 @@ export function Button({
   }
 
   switch (size) {
+    case "very-small":
+      sizeStyles = `text-caption4 font-medium ${
+        variant === "ico"
+          ? "flex items-center justify-center w-[30px] h-[30px]"
+          : "px-[10px] py-[8px]"
+      }`;
+      icoSize = 16;
+      break;
     case "small":
       sizeStyles = `text-caption3 font-medium ${
         variant === "ico"

@@ -155,6 +155,14 @@ const config: Config = {
           fontWeight: "400",
         },
       ],
+      caption5: [
+        "10px",
+        {
+          lineHeight: "13px",
+          letterSpacing: "-0.2px",
+          fontWeight: "400",
+        },
+      ],
     },
     borderRadius: {
       DEFAULT: "10px",

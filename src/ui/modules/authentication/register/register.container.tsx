@@ -42,7 +42,7 @@ export function RegisterContainer() {
     email,
     password,
     how_did_hear,
-  }: RegisterFormFielsType) => {
+  }: RegisterFormFieldsType) => {
     const { error, data } = await firebaseCreateUser(email, password);
     if (error) {
       setIsLoading(false);

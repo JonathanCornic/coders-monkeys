@@ -1,3 +1,4 @@
+import { useMobile } from "@/hooks/use-mobile";
 import { Container } from "@/ui/components/container/container";
 import { SocialNetworksButtons } from "@/ui/components/navigation/social-networks-buttons";
 import { Button } from "@/ui/design-system/button/button";
@@ -39,27 +40,32 @@ const featuresData: FeatuesListInterface[] = [
 ];
 
 export function FeaturedView() {
+  const { isMobile } = useMobile();
+
   const featuredList = featuresData.map((feature) => (
     <div
       key={crypto.randomUUID()}
       className="flex flex-col items-center justify-center bg-white rounded p-7"
     >
-      <div className="relative w-[130px] h-[130px] rounded-full mb-6 p-10 overflow-hidden">
+      <div className="relative w-12 h-12 md:w-32 md:h-32 md:rounded-full mb-6 md:p-5 overflow-hidden">
+        {!isMobile && (
+          <Image
+            fill
+            src={feature.imagePath}
+            alt={feature.imageAlt}
+            className="object-scale-down blur-2xl"
+          />
+        )}
         <Image
-          fill
+          width={isMobile ? 50 : 92}
+          height={isMobile ? 50 : 92}
           src={feature.imagePath}
           alt={feature.imageAlt}
-          className="object-scale-down blur-2xl"
-        />
-        <Image
-          fill
-          src={feature.imagePath}
-          alt={feature.imageAlt}
-          className="object-scale-down"
+          className="object-scale-down absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2"
         />
       </div>
       <Typographiy
-        variant="lead"
+        variant={isMobile ? "body-base" : "lead"}
         component="h3"
         weigth="medium"
         className="text-center mb-2.5"
@@ -67,10 +73,10 @@ export function FeaturedView() {
         {feature.title}
       </Typographiy>
       <Typographiy
-        variant="body-base"
+        variant={isMobile ? "caption4" : "body-base"}
         component="p"
         theme="gray"
-        className="text-center"
+        className="text-center leading-5 md:leading-normal"
       >
         {feature.description}
       </Typographiy>
@@ -79,23 +85,31 @@ export function FeaturedView() {
 
   return (
     <div className="bg-gray-300">
-      <Container className="grid grid-cols-12 gap-24 py-24">
-        <div className="grid grid-cols-2 gap-7 col-span-7">{featuredList}</div>
-        <div className="flex flex-col justify-between col-span-5 gap-10">
-          <div>
-            <Typographiy variant="h2" component="h2" className="mb-5">
+      <Container className="md:grid grid-cols-12 py-20 md:gap-24 md:py-24 gap-5 flex flex-col-reverse">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 col-span-12 md:col-span-7">
+          {featuredList}
+        </div>
+
+        <div className="flex flex-col justify-between col-span-12 md:col-span-5 gap-10">
+          <div className="text-center md:text-start">
+            <Typographiy
+              variant={isMobile ? "h5" : "h2"}
+              component="h2"
+              className="mb-5"
+            >
               L’endroit le plus cool pour devenir développeur
             </Typographiy>
             <Typographiy
-              variant="body-lg"
+              variant={isMobile ? "caption4" : "body-lg"}
               component="p"
               theme="gray"
-              className="mb-8"
+              className="mb-8 leading-6 md:leading-normal"
             >
               Du partage, des connexions et des formations notre app gère tout
               ça pour toi. Rejoins la communauté et grimpe en grade. Let's go !
             </Typographiy>
             <Button
+              size={isMobile ? "small" : "medium"}
               variant="secondary"
               baseUrl="/connexion/inscription"
               icon={{ icon: RiArrowRightLine }}
@@ -103,7 +117,7 @@ export function FeaturedView() {
               Commencer
             </Button>
           </div>
-          <div>
+          <div className="mx-auto text-center md:mx-0 md:text-start">
             <Typographiy
               variant="caption3"
               component="div"

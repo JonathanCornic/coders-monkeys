@@ -15,7 +15,8 @@ interface Props {
     | "caption1"
     | "caption2"
     | "caption3"
-    | "caption4";
+    | "caption4"
+    | "caption5";
   component?: "h1" | "h2" | "h3" | "h4" | "h5" | "div" | "p" | "span";
   theme?: "black" | "gray" | "white" | "primary" | "secondary" | "danger" | "succes" | "warning" | "gray-600";
   weigth?: "regular" | "medium";
@@ -31,7 +32,6 @@ export function Typographiy({
   className,
   children,
 }: Props) {
-
   let variantStyles: string = "",
     colorStyles: string = "";
 
@@ -78,6 +78,9 @@ export function Typographiy({
     case "caption4":
       variantStyles = "text-caption4";
       break;
+    case "caption5":
+      variantStyles = "text-caption5";
+      break;
   }
 
   switch (theme) {
@@ -116,7 +119,7 @@ export function Typographiy({
         variantStyles,
         colorStyles,
         weigth === "medium" && "font-medium",
-        className
+        className,
       )}
     >
       {children}
