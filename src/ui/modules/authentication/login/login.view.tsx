@@ -5,13 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { LoginForm } from "./login.form";
 import { FormsType } from "@/types/forms";
-import { useMobile } from "@/hooks/use-mobile";
 
 interface Props {
   form: FormsType;
 }
 export function LoginView({form}:Props) {
-  const {isMobile} = useMobile()
+
   return (
     <Container className="md:grid grid-cols-2 gap-20 mb-32 flex-col">
       <div className="sm:flex items-center hidden">
@@ -28,7 +27,7 @@ export function LoginView({form}:Props) {
       <div className="flex items-center">
         <Box padding_y="py-5">
           <div className="flex items-center justify-between flex-col lg:flex-row">
-            <Typographiy variant={isMobile ? "body-base" :"h5"} component="h1">
+            <Typographiy variant="h5" component="h1" responsiveVariant="body-base">
               Connexion
             </Typographiy>
             <div className="flex items-center gap-1 flex-col sm:flex-row">

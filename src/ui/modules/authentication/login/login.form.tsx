@@ -1,4 +1,4 @@
-import { useMobile } from "@/hooks/use-mobile";
+
 import { FormsType } from "@/types/forms";
 import { Button } from "@/ui/design-system/button/button";
 import { Input } from "@/ui/design-system/forms/input";
@@ -9,7 +9,7 @@ interface Props {
 
 export function LoginForm({ form }: Props) {
   const { onSubmit, errors, isLoading, register, handleSubmit } = form;
-  const { isMobile } = useMobile();
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="pt-8 pb-5 space-y-4">
       <Input
@@ -34,7 +34,8 @@ export function LoginForm({ form }: Props) {
         isLoading={isLoading}
         type="submit"
         fullWidth
-        size={isMobile ? "small" : "medium"}
+        size="medium"
+        responsiveSize="small"
       >
         Connexion
       </Button>

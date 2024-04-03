@@ -1,11 +1,10 @@
-import { useMobile } from "@/hooks/use-mobile";
 import { Container } from "@/ui/components/container/container";
 import { Button } from "@/ui/design-system/button/button";
 import { Typographiy } from "@/ui/design-system/typography/typography";
 import Image from "next/image";
 
 export function HeroTopView() {
-  const {isMobile} = useMobile()
+  
   return (
     <Container className="relative md:pt-40 md:pb-52 overflow-hidden pt-8 pb-20">
       <div className="absolute md:top-10 md:right-0 top-0 z-0 mb-5 lg:w-[800px] lg:h-[600px] md:w-[400px] md:h-[300px] w-[100px] h-[75px]">
@@ -19,17 +18,19 @@ export function HeroTopView() {
       </div>
       <div className="w-full max-w-2xl space-y-5 mt-28 md:mt-0">
         <Typographiy
-          variant={isMobile ? "h4" : "h1"}
+          variant="h1"
           component="h1"
           className="max-w-lg"
+          responsiveVariant="h4"
         >
           Rejoins les singes codeurs !
         </Typographiy>
         <Typographiy
-          variant={isMobile ? "caption4" : "body-lg"}
+          variant="body-lg"
           component="p"
           theme="gray"
           className="max-w-xl leading-6 md:leading-normal"
+          responsiveVariant="caption4"
         >
           Ici, on se prend pas la tête, mais on code comme des bêtes ! Rejoins
           notre tribu de singes codeurs, partage tes projets les plus fous et
@@ -38,14 +39,16 @@ export function HeroTopView() {
         <div className="flex flex-col items-start gap-2 pt-2.5 sm:space-x-5 sm:block">
           <Button
             baseUrl="/connexion/inscription"
-            size={isMobile ? "small" : "medium"}
+            size="medium"
+            responsiveSize="small"
           >
             Commencer
           </Button>
           <Button
             baseUrl=""
             variant="secondary"
-            size={isMobile ? "small" : "medium"}
+            size="medium"
+            responsiveSize="small"
           >
             En savoir plus
           </Button>

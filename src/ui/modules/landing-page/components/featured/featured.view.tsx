@@ -65,18 +65,20 @@ export function FeaturedView() {
         />
       </div>
       <Typographiy
-        variant={isMobile ? "body-base" : "lead"}
+        variant="lead"
         component="h3"
-        weigth="medium"
+        weight="medium"
         className="text-center mb-2.5"
+        responsiveVariant="body-base"
       >
         {feature.title}
       </Typographiy>
       <Typographiy
-        variant={isMobile ? "caption4" : "body-base"}
+        variant="body-base"
         component="p"
         theme="gray"
         className="text-center leading-5 md:leading-normal"
+        responsiveVariant="caption4"
       >
         {feature.description}
       </Typographiy>
@@ -93,26 +95,29 @@ export function FeaturedView() {
         <div className="flex flex-col justify-between col-span-12 md:col-span-5 gap-10">
           <div className="text-center md:text-start">
             <Typographiy
-              variant={isMobile ? "h5" : "h2"}
+              variant="h2"
               component="h2"
               className="mb-5"
+              responsiveVariant="h5"
             >
               L’endroit le plus cool pour devenir développeur
             </Typographiy>
             <Typographiy
-              variant={isMobile ? "caption4" : "body-lg"}
+              variant="body-lg"
               component="p"
               theme="gray"
               className="mb-8 leading-6 md:leading-normal"
+              responsiveVariant="caption4"
             >
               Du partage, des connexions et des formations notre app gère tout
               ça pour toi. Rejoins la communauté et grimpe en grade. Let's go !
             </Typographiy>
             <Button
-              size={isMobile ? "small" : "medium"}
+              size="medium"
               variant="secondary"
               baseUrl="/connexion/inscription"
               icon={{ icon: RiArrowRightLine }}
+              responsiveSize="small"
             >
               Commencer
             </Button>

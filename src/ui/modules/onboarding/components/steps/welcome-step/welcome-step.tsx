@@ -4,7 +4,6 @@ import { Typographiy } from "@/ui/design-system/typography/typography";
 import Image from "next/image";
 import { OnboardingFooter } from "../../footer/onboarding-footer";
 import { OnboardingTabs } from "../../tabs/onboarding-tabs";
-import { useMobile } from "@/hooks/use-mobile";
 
 export function WelcomeStep({
   next,
@@ -13,7 +12,7 @@ export function WelcomeStep({
   stepsList,
   getCurrentStep,
 }: BaseComponentProps) {
-  const {isMobile} = useMobile()
+
   return (
     <div className="relative h-screen md:pb-[91px]">
       <div className="h-full overflow-auto">
@@ -24,10 +23,16 @@ export function WelcomeStep({
                 tabs={stepsList}
                 getCurrentStep={getCurrentStep}
               />
-              <Typographiy variant={isMobile ? "h4": "h1"} component="h1">
+              <Typographiy variant="h1" component="h1" responsiveVariant="h4">
                 Bienvenue sur l’appli des singes codeurs !
               </Typographiy>
-              <Typographiy variant={isMobile ? "caption3" : "body-base"} component="p" theme="gray">
+              <Typographiy
+                variant="body-base"
+                component="p"
+                theme="gray"
+                responsiveVariant="caption3"
+                className="leading-6 md:leading-normal"
+              >
                 BViens traîner avec des développeurs aussi fous que toi, montre
                 tes projets persos et reçois des feedbacks constructifs (ou
                 fais-toi carrément descendre). Prêt à créer des trucs

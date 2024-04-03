@@ -16,7 +16,7 @@ export const MobileNav = () => {
       <Link href="/">
         <div className="flex items-center gap-2.5">
           <Logo size="extra-small" />
-          <Typographiy variant="caption4" weigth="medium">
+          <Typographiy variant="caption4" weight="medium">
             Coders Monkeys
           </Typographiy>
         </div>

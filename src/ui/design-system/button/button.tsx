@@ -3,16 +3,18 @@ import { IconProps } from "@/types/icon-props";
 import clsx from "clsx";
 import Link from "next/link";
 import { Spinner } from "../spinner/spinner";
+import { useMobile } from "@/hooks/use-mobile";
 
 interface Props {
   size?: "small" | "medium" | "large" | "very-small";
+  responsiveSize?: "small" | "medium" | "large" | "very-small";
   variant?:
     | "accent"
     | "secondary"
     | "outline"
     | "disabled"
     | "ico"
-    | "succes"
+    | "success"
     | "danger";
   icon?: IconProps;
   iconTheme?: "accent" | "secondary" | "gray";
@@ -29,6 +31,7 @@ interface Props {
 
 export function Button({
   size = "medium",
+  responsiveSize,
   variant = "accent",
   icon,
   iconTheme = "accent",
@@ -42,9 +45,13 @@ export function Button({
   fullWidth = false,
   action = () => {},
 }: Props) {
-  let variantStyles: string = "",
-    sizeStyles: string = "",
-    icoSize: number = 0;
+
+  const { isMobile } = useMobile();
+  const selectedSize = isMobile && responsiveSize ? responsiveSize : size;
+
+  let variantStyles: string = "";
+  let sizeStyles: string = "";
+  let icoSize: number = 0;
 
   switch (variant) {
     case "accent": //Default
@@ -62,7 +69,7 @@ export function Button({
       variantStyles =
         "bg-gray-400 border border-gray-500 text-gray-600 rounded cursor-not-allowed";
       break;
-    case "succes":
+    case "success":
       variantStyles = "bg-secondary hover:bg-secondary-400 text-white rounded";
       break;
     case "danger":
@@ -82,7 +89,7 @@ export function Button({
       break;
   }
 
-  switch (size) {
+  switch (selectedSize) {
     case "very-small":
       sizeStyles = `text-caption4 font-medium ${
         variant === "ico"

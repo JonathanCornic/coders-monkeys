@@ -1,4 +1,4 @@
-import { useMobile } from "@/hooks/use-mobile";
+
 import { Container } from "@/ui/components/container/container";
 import { Button } from "@/ui/design-system/button/button";
 import { Typographiy } from "@/ui/design-system/typography/typography";
@@ -6,7 +6,7 @@ import Image from "next/image";
 import { RiArrowRightLine, RiCheckboxCircleLine } from "react-icons/ri";
 
 export default function HighlightListView() {
-  const { isMobile } = useMobile();
+
   return (
     <Container className="md:py-24 py-12 space-y-10">
       <div className="flex md:flex-row md:text-start justify-center md:gap-24 gap-10 flex-col items-center text-center">
@@ -18,7 +18,7 @@ export default function HighlightListView() {
           />
         </div>
         <div className="max-w-md space-y-7">
-          <Typographiy variant={isMobile ? "h5" : "h3"} component="h2">
+          <Typographiy variant="h3" component="h2" responsiveVariant="h5">
             De novice à développeur en un clin d'œil !
           </Typographiy>
           <div className="space-y-3 flex flex-col items-center md:items-start">
@@ -30,7 +30,8 @@ export default function HighlightListView() {
             <Button
               baseUrl="/connexion/inscription"
               icon={{ icon: RiArrowRightLine }}
-              size={isMobile ? "small" : "medium"}
+              size="medium"
+              responsiveSize="small"
             >
               Let's go
             </Button>
@@ -54,7 +55,7 @@ export default function HighlightListView() {
           />
         </div>
         <div className="max-w-md space-y-7">
-          <Typographiy variant={isMobile ? "h5" : "h3"} component="h2">
+          <Typographiy variant="h3" component="h2" responsiveVariant="h5">
             Booste ta carrière de développeur
           </Typographiy>
           <div className="space-y-3 flex flex-col items-center md:items-start">
@@ -67,7 +68,8 @@ export default function HighlightListView() {
               variant="secondary"
               baseUrl="/connexion/inscription"
               icon={{ icon: RiArrowRightLine }}
-              size={isMobile ? "small" : "medium"}
+              size="medium"
+              responsiveSize="small"
             >
               Démarrer
             </Button>
@@ -82,16 +84,18 @@ interface Props {
   children: React.ReactNode;
 }
 function ListPoint({ children }: Props) {
-  const { isMobile } = useMobile();
   return (
     <div className="flex items-start gap-2">
-      {!isMobile && (
-        <RiCheckboxCircleLine size={24} className="mt-0.5 text-secondary" />
-      )}
+      <RiCheckboxCircleLine
+        size={24}
+        className="mt-0.5 text-secondary hidden md:block"
+      />
+
       <Typographiy
-        variant={isMobile ? "caption3" : "body-lg"}
+        variant="body-lg"
         component="span"
         className="leading-6 md:leading-normal"
+        responsiveVariant="caption3"
       >
         {children}
       </Typographiy>

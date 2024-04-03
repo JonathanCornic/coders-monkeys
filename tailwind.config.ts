@@ -30,8 +30,8 @@ const config: Config = {
       },
       alert: {
         danger: "#FF4E4E",
-        succes: "#FEB72F",
-        warning: "#90DA1A",
+        warning: "#FEB72F",
+        success: "#90DA1A",
       },
     },
     fontSize: {
