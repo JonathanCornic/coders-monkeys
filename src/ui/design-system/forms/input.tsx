@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { Typographiy } from "../typography/typography";
+import { useMobile } from "@/hooks/use-mobile";
 
 interface Props {
   isLoading: boolean;
@@ -26,6 +27,7 @@ export function Input({
   isAutocompleted = false,
   label,
 }: Props) {
+  const {isMobile} = useMobile()
   return (
     <div className="space-y-2">
       {label && (
@@ -44,7 +46,7 @@ export function Input({
           errors[id]
             ? "placeholder-alert-danger text-alert-danger"
             : "placeholder-gray-600",
-          "w-full p-4 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
+          "w-full md:p-4 p-2 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
         )}
         disabled={isLoading}
         {...register(id, {
@@ -53,7 +55,7 @@ export function Input({
         autoComplete={isAutocompleted ? "on" : "off"}
       />
       {errors[id] && (
-        <Typographiy variant="caption4" component="div" theme="danger">
+        <Typographiy variant={isMobile ? "caption5":"caption4"} component="div" theme="danger">
           {errors[id]?.message}
         </Typographiy>
       )}

@@ -5,14 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { LoginForm } from "./login.form";
 import { FormsType } from "@/types/forms";
+import { useMobile } from "@/hooks/use-mobile";
 
 interface Props {
   form: FormsType;
 }
 export function LoginView({form}:Props) {
+  const {isMobile} = useMobile()
   return (
-    <Container className="grid grid-cols-2 gap-20 mb-32">
-      <div className="flex items-center">
+    <Container className="md:grid grid-cols-2 gap-20 mb-32 flex-col">
+      <div className="sm:flex items-center hidden">
         <div className="relative w-full h-[531px]">
           <Image
             fill
@@ -25,11 +27,11 @@ export function LoginView({form}:Props) {
       </div>
       <div className="flex items-center">
         <Box padding_y="py-5">
-          <div className="flex items-center justify-between">
-            <Typographiy variant="h5" component="h1">
+          <div className="flex items-center justify-between flex-col lg:flex-row">
+            <Typographiy variant={isMobile ? "body-base" :"h5"} component="h1">
               Connexion
             </Typographiy>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 flex-col sm:flex-row">
               <Typographiy variant="caption4" component="span" theme="gray">
                 Tu n'as pas de compte ?
               </Typographiy>
@@ -39,8 +41,14 @@ export function LoginView({form}:Props) {
             </div>
           </div>
           <LoginForm form={form} />
-          <Typographiy variant="caption4" theme="primary" className="text-center">
-            <Link href="/connexion/mot-de-passe-perdu">mot de passe perdu ?</Link>
+          <Typographiy
+            variant="caption4"
+            theme="primary"
+            className="text-center"
+          >
+            <Link href="/connexion/mot-de-passe-perdu">
+              mot de passe perdu ?
+            </Link>
           </Typographiy>
         </Box>
       </div>

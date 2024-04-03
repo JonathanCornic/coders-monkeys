@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 import { OnboardingFooter } from "../../footer/onboarding-footer";
 import { OnboardingTabs } from "../../tabs/onboarding-tabs";
 import { ProfileStepForm } from "./profile-step-form";
+import { useMobile } from "@/hooks/use-mobile";
 
 export function ProfileStep({
   next,
@@ -20,6 +21,7 @@ export function ProfileStep({
   stepsList,
   getCurrentStep,
 }: BaseComponentProps) {
+  const { isMobile } = useMobile();
   const { value: isLoading, setValue: setLoading } = useToggle();
   const { authUser } = useAuth();
   const {
@@ -78,19 +80,23 @@ export function ProfileStep({
     next();
   };
   return (
-    <div className="relative h-screen pb-[91px]">
-      <div className="h-full overflow-auto">
-        <Container className="grid h-full grid-cols-12">
-          <div className="relative z-10 flex items-center h-full col-span-6 py-10">
+    <div className="relative h-screen md:pb-[91px]">
+      <div className="h-full overflow-auto flex flex-col justify-center">
+        <Container className="lg:grid lg:h-full grid-cols-12 flex-col">
+          <div className="relative z-10 flex items-center lg:h-full col-span-6 py-10">
             <div className="w-full space-y-5 pb-4.5">
               <OnboardingTabs
                 tabs={stepsList}
                 getCurrentStep={getCurrentStep}
               />
-              <Typographiy variant="h1" component="h1">
+              <Typographiy variant={isMobile ? "h4" : "h1"} component="h1">
                 Présente-toi !
               </Typographiy>
-              <Typographiy variant="body-base" component="p" theme="gray">
+              <Typographiy
+                variant={isMobile ? "caption3" : "body-base"}
+                component="p"
+                theme="gray"
+              >
                 Dis-nous tout sur toi ! Remplis notre formulaire de présentation
                 pour qu'on puisse mieux te connaître. On veut savoir qui tu es,
                 ce que tu fais et comment t'as atterri ici. Plus on en saura sur
@@ -99,8 +105,8 @@ export function ProfileStep({
               </Typographiy>
             </div>
           </div>
-          <div className="flex items-center h-full col-span-6">
-            <div className="flex justify-end w-full">
+          <div className="flex items-center lg:h-full col-span-6 pt-10">
+            <div className="flex lg:justify-end w-full justify-center">
               <ProfileStepForm
                 form={{
                   errors,

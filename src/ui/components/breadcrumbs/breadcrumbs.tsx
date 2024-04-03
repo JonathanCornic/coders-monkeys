@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { RiHome3Line } from "react-icons/ri";
 import { Container } from "../container/container";
+import { useMobile } from "@/hooks/use-mobile";
 
 export function Breadcrumbs() {
+  const {isMobile} = useMobile()
   const router = useRouter();
   const asPath = router.asPath;
   const segments = asPath.split("/");
@@ -18,7 +20,7 @@ export function Breadcrumbs() {
         href={index > 0 ? `/${segments.slice(1, index + 1).join("/")}` : "/"}
       >
         <Typographiy
-          variant="caption3"
+          variant={isMobile ? "caption5" : "caption3"}
           component="span"
           className={clsx(
             path !== lastSegment ? "text-gray-600" : "text-gray",
@@ -33,7 +35,7 @@ export function Breadcrumbs() {
         </Typographiy>
         {path !== lastSegment && (
           <Typographiy
-            variant="caption2"
+            variant={isMobile ? "caption4": "caption2"}
             component="span"
             className="ml-2 text-gray-600"
           >

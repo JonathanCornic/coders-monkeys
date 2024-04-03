@@ -1,3 +1,4 @@
+import { useMobile } from "@/hooks/use-mobile";
 import { FormsType } from "@/types/forms";
 import { Button } from "@/ui/design-system/button/button";
 import { Input } from "@/ui/design-system/forms/input";
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export function ForgetPasswordForm({ form }: Props) {
+  const { isMobile } = useMobile();
   const { onSubmit, errors, isLoading, register, handleSubmit } = form;
 
   return (
@@ -20,7 +22,12 @@ export function ForgetPasswordForm({ form }: Props) {
         errorMsg="Tu dois renseigner ce champ"
         id="email"
       />
-      <Button isLoading={isLoading} type="submit" fullWidth>
+      <Button
+        isLoading={isLoading}
+        type="submit"
+        fullWidth
+        size={isMobile ? "small" : "medium"}
+      >
         Envoyer
       </Button>
     </form>

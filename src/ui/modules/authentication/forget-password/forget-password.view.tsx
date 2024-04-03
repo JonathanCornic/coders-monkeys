@@ -5,14 +5,16 @@ import { Typographiy } from "@/ui/design-system/typography/typography";
 import Image from "next/image";
 import Link from "next/link";
 import { ForgetPasswordForm } from "./forget-password.form";
+import { useMobile } from "@/hooks/use-mobile";
 
 interface Props {
   form: FormsType;
 }
 export function ForgetPasswordView({ form }: Props) {
+  const { isMobile } = useMobile();
   return (
-    <Container className="grid grid-cols-2 gap-20 mb-32">
-      <div className="flex items-center">
+    <Container className="md:grid grid-cols-2 gap-20 mb-32 flex-col">
+      <div className="sm:flex items-center hidden">
         <div className="relative w-full h-[531px]">
           <Image
             fill
@@ -25,8 +27,12 @@ export function ForgetPasswordView({ form }: Props) {
       </div>
       <div className="flex items-center">
         <Box padding_y="py-5">
-          <div className="flex items-center justify-between">
-            <Typographiy variant="h5" component="h1">
+          <div className="flex items-center justify-between flex-col lg:flex-row">
+            <Typographiy
+              variant={isMobile ? "body-base" : "h5"}
+              component="h1"
+              className="text-center "
+            >
               Mot de passe perdu ?
             </Typographiy>
 

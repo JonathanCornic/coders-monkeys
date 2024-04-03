@@ -2,7 +2,6 @@ import { useMobile } from "@/hooks/use-mobile";
 import { Container } from "@/ui/components/container/container";
 import { Button } from "@/ui/design-system/button/button";
 import { Typographiy } from "@/ui/design-system/typography/typography";
-import clsx from "clsx";
 import Image from "next/image";
 
 export function HeroTopView() {

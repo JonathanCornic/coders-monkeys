@@ -1,3 +1,4 @@
+import { useMobile } from "@/hooks/use-mobile";
 import { Button } from "@/ui/design-system/button/button";
 import clsx from "clsx";
 
@@ -23,6 +24,7 @@ export const OnboardingFooter = ({
   } else {
     actionButtonTitle = "Continuer";
   }
+  const {isMobile} = useMobile()
   return (
     <div className="absolute bottom-0 w-full p-5 bg-white border-t border-gray-400">
       <div
@@ -38,12 +40,17 @@ export const OnboardingFooter = ({
             disabled={isLoading}
             variant={!isLoading ? "outline" : "disabled"}
             action={prev}
+            size={isMobile ? "small" : "medium"}
           >
             Retour
           </Button>
         )}
         {next && (
-          <Button isLoading={isLoading} action={next}>
+          <Button
+            isLoading={isLoading}
+            action={next}
+            size={isMobile ? "small" : "medium"}
+          >
             {actionButtonTitle}
           </Button>
         )}
