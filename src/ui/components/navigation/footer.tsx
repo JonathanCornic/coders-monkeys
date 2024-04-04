@@ -18,7 +18,7 @@ export function Footer() {
     <div className="bg-gray">
       <Container className="flex justify-between pt-16 flex-col md:flex-row md:gap-24">
         <div className="flex flex-col items-center gap-1">
-          <Typographiy variant="caption1" theme="white" weigth="medium">
+          <Typographiy variant="caption1" theme="white" weight="medium">
             Formations gratuites
           </Typographiy>
           <Typographiy variant="caption3" theme="gray">
@@ -87,7 +87,7 @@ function FooterLink({ data }: FooterLinkProps) {
       <Typographiy
         variant="caption2"
         theme="white"
-        weigth="medium"
+        weight="medium"
         className="pb-5"
       >
         {data.label}

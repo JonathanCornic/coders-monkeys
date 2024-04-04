@@ -25,12 +25,12 @@ export default function DesignSystem() {
         <Container className="py-10 space-y-10">
           {/* {Typography} */}
           <div className="space-y-2">
-            <Typographiy variant="caption2" weigth="medium">
+            <Typographiy variant="caption2" weight="medium">
               Typography
             </Typographiy>
             <div className="flex flex-col gap-2 p-5 border border-gray-400 divide-y-2 divide-gray-400 rounded">
               <div className="pb-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   Display
                 </Typographiy>
                 <Typographiy variant="display">
@@ -38,7 +38,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   H1
                 </Typographiy>
                 <Typographiy variant="h1">
@@ -46,7 +46,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   H2
                 </Typographiy>
                 <Typographiy variant="h2">
@@ -55,7 +55,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   H3
                 </Typographiy>
                 <Typographiy variant="h3">
@@ -64,7 +64,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   H4
                 </Typographiy>
                 <Typographiy variant="h4">
@@ -73,7 +73,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   H5
                 </Typographiy>
                 <Typographiy variant="h5">
@@ -82,18 +82,18 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   Lead
                 </Typographiy>
                 <Typographiy variant="lead">
                   Nothing is impossible, the word itself says, I’m possible!
                 </Typographiy>
-                <Typographiy variant="lead" weigth="medium">
+                <Typographiy variant="lead" weight="medium">
                   Nothing is impossible, the word itself says, I’m possible!
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   Body lg
                 </Typographiy>
                 <Typographiy variant="body-lg">
@@ -103,7 +103,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   Body base
                 </Typographiy>
                 <Typographiy variant="body-base">
@@ -113,7 +113,7 @@ export default function DesignSystem() {
                 </Typographiy>
               </div>
               <div className="py-5 space-y-2">
-                <Typographiy variant="caption3" weigth="medium">
+                <Typographiy variant="caption3" weight="medium">
                   Body sm
                 </Typographiy>
                 <Typographiy variant="body-sm">
@@ -125,37 +125,37 @@ export default function DesignSystem() {
               </div>
               <div className="flex divide-x-2 divide-gray-400">
                 <div className="py-5 pr-10 space-y-2">
-                  <Typographiy variant="caption3" weigth="medium">
+                  <Typographiy variant="caption3" weight="medium">
                     Caption1
                   </Typographiy>
-                  <Typographiy variant="caption1" weigth="medium">
+                  <Typographiy variant="caption1" weight="medium">
                     Medium
                   </Typographiy>
                   <Typographiy variant="caption1">Regular</Typographiy>
                 </div>
                 <div className="py-5 px-10 space-y-2">
-                  <Typographiy variant="caption3" weigth="medium">
+                  <Typographiy variant="caption3" weight="medium">
                     Caption2
                   </Typographiy>
-                  <Typographiy variant="caption2" weigth="medium">
+                  <Typographiy variant="caption2" weight="medium">
                     Medium
                   </Typographiy>
                   <Typographiy variant="caption2">Regular</Typographiy>
                 </div>
                 <div className="py-5 px-10 space-y-2">
-                  <Typographiy variant="caption3" weigth="medium">
+                  <Typographiy variant="caption3" weight="medium">
                     Caption3
                   </Typographiy>
-                  <Typographiy variant="caption3" weigth="medium">
+                  <Typographiy variant="caption3" weight="medium">
                     Medium
                   </Typographiy>
                   <Typographiy variant="caption3">Regular</Typographiy>
                 </div>
                 <div className="py-5 px-10 space-y-2">
-                  <Typographiy variant="caption3" weigth="medium">
+                  <Typographiy variant="caption3" weight="medium">
                     Caption4
                   </Typographiy>
-                  <Typographiy variant="caption4" weigth="medium">
+                  <Typographiy variant="caption4" weight="medium">
                     Medium
                   </Typographiy>
                   <Typographiy variant="caption4">Regular</Typographiy>
@@ -166,7 +166,7 @@ export default function DesignSystem() {
 
           {/* {Spinner} */}
           <div className="space-y-2">
-            <Typographiy variant="caption2" weigth="medium">
+            <Typographiy variant="caption2" weight="medium">
               Spinners
             </Typographiy>
             <div className="flex gap-2 p-5 border border-gray-400 rounded">
@@ -180,7 +180,7 @@ export default function DesignSystem() {
 
           {/* {Avatar} */}
           <div className="space-y-2">
-            <Typographiy variant="caption2" weigth="medium">
+            <Typographiy variant="caption2" weight="medium">
               Avatar
             </Typographiy>
             <div className="flex gap-2 p-5 border border-gray-400 rounded">
@@ -202,7 +202,7 @@ export default function DesignSystem() {
 
           {/* {Logo} */}
           <div className="space-y-2">
-            <Typographiy variant="caption2" weigth="medium">
+            <Typographiy variant="caption2" weight="medium">
               Logo
             </Typographiy>
             <div className="flex gap-2 p-5 border border-gray-400 rounded">
@@ -217,11 +217,11 @@ export default function DesignSystem() {
 
           {/* {Boutton} */}
           <div className="space-y-2">
-            <Typographiy variant="caption2" weigth="medium">
+            <Typographiy variant="caption2" weight="medium">
               Buttons
             </Typographiy>
             <div className="flex flex-col gap-2 p-5 border border-gray-400 rounded">
-              <Typographiy variant="caption2" weigth="medium">
+              <Typographiy variant="caption2" weight="medium">
                 Small
               </Typographiy>
 
@@ -308,7 +308,7 @@ export default function DesignSystem() {
                   Disabled
                 </Button>
               </div>
-              <Typographiy variant="caption2" weigth="medium">
+              <Typographiy variant="caption2" weight="medium">
                 Medium
               </Typographiy>
 
@@ -379,7 +379,7 @@ export default function DesignSystem() {
                 </Button>
               </div>
 
-              <Typographiy variant="caption2" weigth="medium">
+              <Typographiy variant="caption2" weight="medium">
                 Large
               </Typographiy>
 
