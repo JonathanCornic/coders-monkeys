@@ -6,7 +6,7 @@ import Image from "next/image";
 export function HeroTopView() {
   
   return (
-    <Container className="relative md:pt-40 md:pb-52 overflow-hidden pt-8 pb-20">
+    <Container className="relative md:pt-40 md:pb-52 overflow-hidden pt-8 pb-20 bg-primary">
       <div className="absolute md:top-10 md:right-0 top-0 z-0 mb-5 lg:w-[800px] lg:h-[600px] md:w-[400px] md:h-[300px] w-[100px] h-[75px]">
         <Image
           src="assets/svg/rocket.svg"
