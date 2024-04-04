@@ -12,15 +12,17 @@ export const AccountAvatarNavigationLink = () => {
       <Avatar
         src={photoURL}
         alt={
-          displayName ? `Avatar de ${displayName}` : "Avatar par defaut de l'utilisateur"
+          displayName
+            ? `Avatar de ${displayName}`
+            : "Avatar par defaut de l'utilisateur"
         }
         size="large"
       />
       <div className="max-w-[160px]">
-        <Typographiy variant="caption2" weigth="medium" className="truncate">
+        <Typographiy variant="caption2" weight="medium" className="truncate">
           {displayName ? displayName : "Bienvenue"}
         </Typographiy>
-        <Typographiy variant="caption4" weigth="medium" theme="gray">
+        <Typographiy variant="caption4" weight="medium" theme="gray">
           Mon compte
         </Typographiy>
       </div>

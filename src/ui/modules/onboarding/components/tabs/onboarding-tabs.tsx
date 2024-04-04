@@ -24,7 +24,7 @@ export const OnboardingTabs = ({ tabs, getCurrentStep }: Props) => {
             >
               <Typographiy
                 variant="caption3"
-                weigth="medium"
+                weight="medium"
                 theme={
                   getCurrentStep && getCurrentStep()?.id === tab.id
                     ? "primary"
