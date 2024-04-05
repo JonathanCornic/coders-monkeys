@@ -1,4 +1,5 @@
 import { auth } from "@/config/firebase-config";
+import { getFirebaseErrorMessage } from "@/utils/getFirebaseErrorMessage";
 import { FirebaseError } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
@@ -18,11 +19,14 @@ export const firebaseCreateUser = async (email: string, password: string) => {
     return { data: userCredential.user };
   } catch (error) {
     const firebaseError = error as FirebaseError;
-    // @Todo format error
+    const errorMessage = getFirebaseErrorMessage(
+      "createUserWithEmailAndPassword",
+      firebaseError.code
+    );
     return {
       error: {
         code: firebaseError.code,
-        message: firebaseError.message,
+        message: errorMessage,
       },
     };
   }
@@ -38,11 +42,14 @@ export const firebaseSignInUser = async (email: string, password: string) => {
     return { data: userCredential.user };
   } catch (error) {
     const firebaseError = error as FirebaseError;
-    // @Todo format error
+    const errorMessage = getFirebaseErrorMessage(
+      "signInWithEmailAndPassword",
+      firebaseError.code
+    );
     return {
       error: {
         code: firebaseError.code,
-        message: firebaseError.message,
+        message: errorMessage,
       },
     };
   }
@@ -54,11 +61,14 @@ export const firebaseLogOutUser = async () => {
     return { data: true };
   } catch (error) {
     const firebaseError = error as FirebaseError;
-    // @Todo format error
+    const errorMessage = getFirebaseErrorMessage(
+      "firebaseLogOutUser",
+      firebaseError.code
+    );
     return {
       error: {
         code: firebaseError.code,
-        message: firebaseError.message,
+        message: errorMessage,
       },
     };
   }
@@ -70,11 +80,14 @@ export const sendEmailToResetPassword = async (email: string) => {
     return { data: true };
   } catch (error) {
     const firebaseError = error as FirebaseError;
-    // @Todo format error
+    const errorMessage = getFirebaseErrorMessage(
+      "sendEmailToResetPassword",
+      firebaseError.code
+    );
     return {
       error: {
         code: firebaseError.code,
-        message: firebaseError.message,
+        message: errorMessage,
       },
     };
   }
@@ -87,11 +100,14 @@ export const sendEmailVerificationProcedure = async () => {
       return { data: true };
     } catch (error) {
       const firebaseError = error as FirebaseError;
-      // @Todo format error
+      const errorMessage = getFirebaseErrorMessage(
+        "sendEmailVerificationProcedure",
+        firebaseError.code
+      );
       return {
         error: {
           code: firebaseError.code,
-          message: firebaseError.message,
+          message: errorMessage,
         },
       };
     }
@@ -103,4 +119,35 @@ export const sendEmailVerificationProcedure = async () => {
       },
     };
   }
+};
+
+export const uptadeUserIdentificationData = async (uid: string, data: any) => {
+  const result = await fetch(
+    "https://us-central1-coders-monkeys-f3a92.cloudfunctions.net/updateUser",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        uid: uid,
+        data: data,
+      }),
+    }
+  );
+  if (!result.ok) {
+    const errorResponse = await result.json();
+    const firebaseError = errorResponse as FirebaseError;
+    const errorMessage = getFirebaseErrorMessage(
+      "uptadeUserIdentificationData",
+      firebaseError.code
+    );
+    return {
+      error: {
+        code: firebaseError.code,
+        message: errorMessage,
+      },
+    };
+  }
+  return { data: true };
 };

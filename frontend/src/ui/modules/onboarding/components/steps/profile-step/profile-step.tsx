@@ -1,3 +1,4 @@
+import { uptadeUserIdentificationData } from "@/api/authentication";
 import { firestoreUpdateDocument } from "@/api/firestore";
 import { useAuth } from "@/context/AuthUserContext";
 import { useToggle } from "@/hooks/use-toggle";
@@ -20,8 +21,10 @@ export function ProfileStep({
   stepsList,
   getCurrentStep,
 }: BaseComponentProps) {
-  const { value: isLoading, setValue: setLoading } = useToggle();
   const { authUser } = useAuth();
+  console.log("authUser", authUser);
+
+  const { value: isLoading, setValue: setLoading } = useToggle();
   const {
     handleSubmit,
     control,
@@ -72,6 +75,24 @@ export function ProfileStep({
       expertise !== formData.expertise ||
       biography !== formData.biography
     ) {
+      if (
+        displayName !== formData.displayName ||
+        authUser.displayName !== formData.displayName
+      ) {
+        const data = {
+          displayName: formData.displayName,
+        };
+        const { error } = await uptadeUserIdentificationData(
+          authUser.uid,
+          data
+        );
+
+        if (error) {
+          setLoading(false);
+          toast.error(error.message);
+          return;
+        }
+      }
       handleUpdateUserDocument(formData);
     } else {
       setLoading(false);
