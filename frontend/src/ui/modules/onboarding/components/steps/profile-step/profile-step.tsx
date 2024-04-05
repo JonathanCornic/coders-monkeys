@@ -22,7 +22,6 @@ export function ProfileStep({
   getCurrentStep,
 }: BaseComponentProps) {
   const { authUser } = useAuth();
-  console.log("authUser", authUser);
 
   const { value: isLoading, setValue: setLoading } = useToggle();
   const {
