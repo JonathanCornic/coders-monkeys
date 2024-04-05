@@ -73,9 +73,10 @@ export function ProfileStep({
       biography !== formData.biography
     ) {
       handleUpdateUserDocument(formData);
+    } else {
+      setLoading(false);
+      next();
     }
-    setLoading(false)
-    next();
   };
   return (
     <div className="relative h-screen md:pb-[91px]">

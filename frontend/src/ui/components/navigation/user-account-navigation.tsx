@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { ActiveLink } from "./active-link";
 
 export function UserAccountNavigation() {
+
   const handleLogOutUser = async () => {
     const { error } = await firebaseLogOutUser();
     if (error) {

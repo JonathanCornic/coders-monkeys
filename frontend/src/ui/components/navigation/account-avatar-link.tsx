@@ -12,9 +12,7 @@ export const AccountAvatarNavigationLink = () => {
       <Avatar
         src={photoURL}
         alt={
-          displayName
-            ? `Avatar de ${displayName}`
-            : "Avatar par defaut de l'utilisateur"
+          displayName ? `Avatar de ${displayName}` : "Avatar par defaut de l'utilisateur"
         }
         size="large"
       />
