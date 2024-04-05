@@ -23,7 +23,7 @@ export function Avatar({ size = "medium", src, alt, isLoading }: Props) {
       sizeStyles = "w-[50px] h-[50px]";
       break;
     case "extra-large":
-      sizeStyles = "w-[130px] h-[130px]";
+      sizeStyles = "md:w-[130px] md:h-[130px] w-[50px] h-[50px]";
       break;
   }
 

@@ -102,7 +102,7 @@ export function ProfileStep({
     <div className="relative h-screen md:pb-[91px]">
       <div className="h-full overflow-auto flex flex-col justify-center">
         <Container className="lg:grid lg:h-full grid-cols-12 flex-col">
-          <div className="relative z-10 flex items-center lg:h-full col-span-6 py-10 md:px-28 lg:px-0">
+          <div className="relative flex items-center lg:h-full col-span-6 py-10 md:px-28 lg:px-0">
             <div className="w-full space-y-5 pb-4.5">
               <OnboardingTabs
                 tabs={stepsList}

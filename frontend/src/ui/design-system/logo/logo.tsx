@@ -1,8 +1,13 @@
+import { useMobile } from "@/hooks/use-mobile";
+
 interface Props {
   size?: "very-small" | "small" | "medium" | "large" | "extra-small";
 }
 
 export function Logo({ size = "medium" }: Props) {
+
+  const {isMobile} = useMobile()
+
   let sizeLogo: number;
 
   switch (size) {
@@ -19,7 +24,7 @@ export function Logo({ size = "medium" }: Props) {
       sizeLogo = 88;
       break;
     case "large":
-      sizeLogo = 140;
+      {isMobile ? sizeLogo = 88 : sizeLogo = 140};
       break;
   }
 

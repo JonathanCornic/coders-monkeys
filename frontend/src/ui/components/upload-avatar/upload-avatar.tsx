@@ -29,7 +29,7 @@ export function UploadAvatar({
       <label
         className={clsx(
           isLoading ? "cursor-not-allowed" : "cursor-pointer",
-          "inline-block bg-primary hover:bg-primary-400 text-white rounded px-[18px] py-[15px] text-caption2 font-medium animate"
+          "inline-block bg-primary hover:bg-primary-400 text-white rounded px-[18px] py-[15px] md:text-caption2 font-medium animate text-caption4"
         )}
       >
         <div className="flex items-center gap-2">

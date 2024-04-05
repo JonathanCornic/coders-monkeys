@@ -4,6 +4,7 @@ import { ProfileStep } from "./components/steps/profile-step/profile-step";
 import { WelcomeStep } from "./components/steps/welcome-step/welcome-step";
 import { OnboardingView } from "./onboarding.view";
 import { AvatarStep } from "./components/steps/avatar-step/avatar-step";
+import { FinalStep } from "./components/steps/final-step/final-step";
 
 export const OnboardingContainer = () => {
   const [currentStep, setCurrentStep] = useState<number>(1);
@@ -20,13 +21,13 @@ export const OnboardingContainer = () => {
     },
     {
       id: 3,
-      label: "Avatar",
+      label: "Photo",
       component: { step: AvatarStep },
     },
     {
       id: 4,
-      label: "LastStep",
-      component: { step: WelcomeStep },
+      label: "Dernière étape",
+      component: { step: FinalStep },
     },
   ];
 

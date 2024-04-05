@@ -17,7 +17,7 @@ export function WelcomeStep({
     <div className="relative h-screen md:pb-[91px]">
       <div className="h-full overflow-auto">
         <Container className="grid h-full grid-cols-12">
-          <div className="relative z-10 flex items-center h-full col-span-12 py-10 lg:col-span-6">
+          <div className="relative flex items-center h-full col-span-12 py-10 lg:col-span-6">
             <div className="w-full space-y-5 pb-4.5">
               <OnboardingTabs
                 tabs={stepsList}
