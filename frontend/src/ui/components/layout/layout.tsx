@@ -5,6 +5,8 @@ import { Footer } from "../navigation/footer";
 import { Navigation } from "../navigation/navigation";
 import { UserAccountNavigation } from "../navigation/user-account-navigation";
 import { Session } from "../session/session";
+import { CallsToActionSideBarContribution } from "../calls-to-action/calls-to-action-side-bar-contribution";
+import { CallsToActionSideBarGroup } from "../calls-to-action/calls-to-action-side-bar-group";
 
 interface Props {
   children: React.ReactNode;
@@ -23,9 +25,11 @@ export function Layout({
   if (withSidebar) {
     view = (
       <Container className="mb-14 flex-grow">
-        <div className="grid grid-cols-12 gap-7">
-          <div className="col-span-3">
+        <div className="md:grid md:grid-cols-12 gap-7">
+          <div className="md:col-span-3 md:space-y-8 space-y-5">
             <UserAccountNavigation />
+            <CallsToActionSideBarContribution/>
+            <CallsToActionSideBarGroup/>
           </div>
           <div className="col-span-9">{children}</div>
         </div>

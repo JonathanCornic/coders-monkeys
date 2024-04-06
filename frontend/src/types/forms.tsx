@@ -24,3 +24,10 @@ export interface OnboardingProfileFormFieldsType {
   expertise: string;
   biography: string;
 }
+export interface UserAcountFormFieldsType {
+  displayName: string;
+  expertise: string;
+  biography: string;
+  github: string;
+  linkedin:string;
+}

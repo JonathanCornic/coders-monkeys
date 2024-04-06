@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { ActiveLink } from "./active-link";
 
 export function UserAccountNavigation() {
-
   const handleLogOutUser = async () => {
     const { error } = await firebaseLogOutUser();
     if (error) {
@@ -17,15 +16,29 @@ export function UserAccountNavigation() {
   };
 
   return (
-    <Box className="flex fle-col gap-7">
-      <div className="flex flex-col gap-3">
-        <Typographiy variant="caption2" weight="medium">
+    <Box className="flex flex-col gap-3 items-center md:items-start">
+      <div className="flex flex-row gap-3 md:flex-col">
+        <Typographiy
+          variant="caption2"
+          weight="medium"
+          responsiveVariant="caption4"
+        >
           <ActiveLink href="/mon-espace">Mon compte</ActiveLink>
         </Typographiy>
-        <Typographiy variant="caption2" weight="medium">
+        <Typographiy
+          variant="caption2"
+          weight="medium"
+          responsiveVariant="caption4"
+        >
           <ActiveLink href="/mon-espace/mes-projets">Mes Projets</ActiveLink>
         </Typographiy>
-        <Button action={handleLogOutUser} variant="danger">
+      </div>
+      <div>
+        <Button
+          action={handleLogOutUser}
+          variant="danger"
+          responsiveSize="very-small"
+        >
           Déconnexion
         </Button>
       </div>

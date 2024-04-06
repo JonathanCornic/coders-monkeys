@@ -164,7 +164,7 @@ export function Button({
         icoSize,
         isLoading && "cursor-not-allowed",
         fullWidth && "w-full",
-        "relative animate"
+        "relative animate",
       )}
       onClick={handleClick}
       disabled={disabled || isLoading ? true : false}

@@ -1,11 +1,11 @@
+import { useMobile } from "@/hooks/use-mobile";
 import clsx from "clsx";
 import { Typographiy } from "../typography/typography";
-import { useMobile } from "@/hooks/use-mobile";
 
 interface Props {
   isLoading: boolean;
   placeholder: string;
-  type?: "text" | "email" | "password";
+  type?: "text" | "email" | "password" | "url";
   register: any;
   errors: any;
   errorMsg?: string;
@@ -27,7 +27,7 @@ export function Input({
   isAutocompleted = false,
   label,
 }: Props) {
-  const {isMobile} = useMobile()
+  const { isMobile } = useMobile();
   return (
     <div className="space-y-2">
       {label && (
@@ -38,24 +38,36 @@ export function Input({
           {label}
         </Typographiy>
       )}
-      <input
-        type={type}
-        placeholder={placeholder}
-        className={clsx(
-          isLoading && "cursor-not-allowed",
-          errors[id]
-            ? "placeholder-alert-danger text-alert-danger"
-            : "placeholder-gray-600",
-          "w-full md:p-4 p-2 font-light border border-gray-400 rounded focus:outline-none focus:ring-1 focus:ring-primary"
+      <div className="flex items-center">
+        {type === "url" && (
+          <div className="text-gray-600 border-l border-gray-400 rounded-l bg-gray-500/40 border-y md:p-4 p-2">
+            https://
+          </div>
         )}
-        disabled={isLoading}
-        {...register(id, {
-          required: { value: required, message: errorMsg },
-        })}
-        autoComplete={isAutocompleted ? "on" : "off"}
-      />
+        <input
+          type={type}
+          placeholder={placeholder}
+          className={clsx(
+            type === "url" ? "rounded-r" : "rounded",
+            isLoading && "cursor-not-allowed",
+            errors[id]
+              ? "placeholder-alert-danger text-alert-danger"
+              : "placeholder-gray-600",
+            "w-full md:p-4 p-2 font-light border border-gray-400 focus:outline-none focus:ring-1 focus:ring-primary"
+          )}
+          disabled={isLoading}
+          {...register(id, {
+            required: { value: required, message: errorMsg },
+          })}
+          autoComplete={isAutocompleted ? "on" : "off"}
+        />
+      </div>
       {errors[id] && (
-        <Typographiy variant={isMobile ? "caption5":"caption4"} component="div" theme="danger">
+        <Typographiy
+          variant={isMobile ? "caption5" : "caption4"}
+          component="div"
+          theme="danger"
+        >
           {errors[id]?.message}
         </Typographiy>
       )}
