@@ -2,7 +2,6 @@ import { useAuth } from "@/context/AuthUserContext";
 import { useToggle } from "@/hooks/use-toggle";
 import { BaseComponentProps } from "@/types/onboarding-steps-list";
 import { Typographiy } from "@/ui/design-system/typography/typography";
-
 import { uptadeUserIdentificationData } from "@/api/authentication";
 import { firestoreUpdateDocument } from "@/api/firestore";
 import { storage } from "@/config/firebase-config";

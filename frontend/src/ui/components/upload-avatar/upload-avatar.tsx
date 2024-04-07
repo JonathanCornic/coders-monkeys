@@ -8,14 +8,16 @@ interface Props {
   imagePreview: string | ArrayBuffer | null;
   uploadProgress: number;
   isLoading: boolean;
+  variant?: "primary" | "outline";
 }
 export function UploadAvatar({
   handleImageSelect,
   imagePreview,
   uploadProgress,
   isLoading,
+  variant = "primary",
 }: Props) {
-  const {authUser} = useAuth()
+  const { authUser } = useAuth();
   const uploadProgressBarStyle = `fixed top-0 left-0 w-full h-1 bg-secondary animate ${
     uploadProgress > 0 ? "" : "hidden"
   }`;
@@ -29,7 +31,9 @@ export function UploadAvatar({
       <label
         className={clsx(
           isLoading ? "cursor-not-allowed" : "cursor-pointer",
-          "inline-block bg-primary hover:bg-primary-400 text-white rounded px-[18px] py-[15px] md:text-caption2 font-medium animate text-caption4"
+          variant === "primary" && "bg-primary hover:bg-primary-400 text-white",
+          variant === "outline" && "bg-white hover:bg-gray-400/50 border border-gray-500 text-gray-800",
+          "inline-block rounded md:px-[18px] md:py-[15px] md:text-caption2 font-medium animate text-caption4 px-[10px] py-[10px]"
         )}
       >
         <div className="flex items-center gap-2">
@@ -52,7 +56,8 @@ export function UploadAvatar({
             ? typeof imagePreview === "string"
               ? imagePreview
               : String(imagePreview)
-            : authUser.userDocument.photoURL ? authUser.userDocument.photoURL
+            : authUser.userDocument.photoURL
+            ? authUser.userDocument.photoURL
             : "assets/svg/camera.svg"
         }
       />

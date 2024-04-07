@@ -23,7 +23,7 @@ export function ProfileStep({
 }: BaseComponentProps) {
   const { authUser } = useAuth();
 
-  const { value: isLoading, setValue: setLoading } = useToggle();
+  const { value: isLoading, setValue: setIsLoading } = useToggle();
   const {
     handleSubmit,
     control,
@@ -56,11 +56,11 @@ export function ProfileStep({
       formData
     );
     if (error) {
-      setLoading(false);
+      setIsLoading(false);
       toast.error(error.message);
       return;
     }
-    setLoading(false);
+    setIsLoading(false);
     reset();
     next();
   };
@@ -68,7 +68,7 @@ export function ProfileStep({
   const onSubmit: SubmitHandler<OnboardingProfileFormFieldsType> = async (
     formData
   ) => {
-    setLoading(true);
+    setIsLoading(true);
     if (
       displayName !== formData.displayName ||
       expertise !== formData.expertise ||
@@ -87,14 +87,14 @@ export function ProfileStep({
         );
 
         if (error) {
-          setLoading(false);
+          setIsLoading(false);
           toast.error(error.message);
           return;
         }
       }
       handleUpdateUserDocument(formData);
     } else {
-      setLoading(false);
+      setIsLoading(false);
       next();
     }
   };

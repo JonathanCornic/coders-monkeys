@@ -1,21 +1,41 @@
 import { FormsType } from "@/types/forms";
+import { UploadAvatar } from "@/ui/components/upload-avatar/upload-avatar";
 import { Button } from "@/ui/design-system/button/button";
 import { Input } from "@/ui/design-system/forms/input";
 import { Textarea } from "@/ui/design-system/forms/textarea";
 import { Typographiy } from "@/ui/design-system/typography/typography";
 
 interface Props {
+  imagePreview: string | ArrayBuffer | null;
+  uploadProgress: number;
+  handleImageSelect: (e: React.ChangeEvent<HTMLInputElement>) => void;
   form: FormsType;
 }
-export function UserAccountForm({ form }: Props) {
+export function UserAccountForm({ form, imagePreview, uploadProgress, handleImageSelect }: Props) {
   const { errors, control, register, handleSubmit, onSubmit, isLoading } = form;
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-10">
-      <div className="flex items-center justify-between py-5">
-        <div>{/* {<UploadAvatar/>} */}</div>
-        <div className="flex items-end gap-1">
-          <Typographiy variant="h1" responsiveVariant="caption2">0</Typographiy>
-          <Typographiy variant="caption4" theme="gray-600" className="md:mb-3 mb-0.5">Abonnés</Typographiy>
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-0 md:space-y-10">
+      <div className="flex items-center justify-between py-5 flex-col md:flex-row">
+        <div>
+          <UploadAvatar
+            handleImageSelect={handleImageSelect}
+            imagePreview={imagePreview}
+            uploadProgress={uploadProgress}
+            isLoading={isLoading}
+            variant="outline"
+          />
+        </div>
+        <div className="flex items-end gap-1 pt-5 md:pt-0">
+          <Typographiy variant="h1" responsiveVariant="caption2">
+            0
+          </Typographiy>
+          <Typographiy
+            variant="caption4"
+            theme="gray-600"
+            className="md:mb-3 mb-0.5"
+          >
+            Abonnés
+          </Typographiy>
         </div>
       </div>
 
