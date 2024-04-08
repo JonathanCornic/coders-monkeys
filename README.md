@@ -6,7 +6,7 @@ Tutoriel Next js
 Réalisation d'un site de fastfood avec react
 
 <div align="center">
-<img src="">
+<img src="https://github.com/JonathanCornic/coders-monkeys/blob/main/coder-monkeys-img-preview.png">
 </div>
 
 ## Technologies utilisées
@@ -16,6 +16,16 @@ Réalisation d'un site de fastfood avec react
 - Firebase
 - libs(react-hook-form, clsx, react-icons, react-toastify)
 - Git
+
+## Fonctionnalités
+
+- Authentification par mots de passe
+- Envoie d'un mail de verification
+- Possibilité de reinitialiser son mot de passe par envoie d'un mail de verification
+- Mise en place d'un onboarding et récuperation d'informations sur l'utilisateur
+- Mise à jour des données primaire de l'utilisateur
+- Echange avec la DB CRUD (create/read and update)
+- Dispatch les elements mis à jour dans les composants qui consomment ces données
 
 ## Comment voir le rendu hébergé
 
