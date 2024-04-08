@@ -5,8 +5,10 @@ Tutoriel Next js
 
 Réalisation d'un site de fastfood avec react
 
-<div align="center">
-<img src="https://github.com/JonathanCornic/coders-monkeys/blob/main/coder-monkeys-img-preview.png">
+<div align="">
+<img src="https://github.com/JonathanCornic/coders-monkeys/blob/main/coder-monkeys-home-preview.png">
+<img src="https://github.com/JonathanCornic/coders-monkeys/blob/main/coders-monkeys-design-system-preview.png">
+<img src="https://github.com/JonathanCornic/coders-monkeys/blob/main/coders-monkeys-profil-preview.png">
 </div>
 
 ## Technologies utilisées
